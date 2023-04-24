@@ -56,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.exceptionHandling().authenticationEntryPoint(authEntryPoint).accessDeniedHandler(authEntryPoint);
 
         http.authorizeRequests().antMatchers(AntMatchersList.getAntMatchersList()).permitAll()
-                .antMatchers(AntMatchersList.getAntMatchersAdminList()).hasRole("ADMIN")
+                .antMatchers("/api/book/delete/*").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

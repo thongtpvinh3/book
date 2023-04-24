@@ -46,7 +46,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public User register(User user) {
-        user.setRole(Role.EMPLOYEE);
+        user.setRole(Role.ROLE_EMPLOYEE);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         mailService.sendActiveUserMail(user.getEmail());
         return userRepository.save(user);

@@ -6,6 +6,7 @@ import com.thong.book.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,6 +40,8 @@ public class BookController {
 
     @DeleteMapping("delete/{id}")
     public ResponseEntity<?> delete(@PathVariable long id) {
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString());
+        System.out.println(SecurityContextHolder.getContext().getAuthentication());
         bookService.delete(id);
         return ResponseEntity.ok(new ResponseObject("delete ok", HttpStatus.OK));
     }

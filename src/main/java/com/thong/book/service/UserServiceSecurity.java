@@ -22,6 +22,6 @@ public class UserServiceSecurity implements UserDetailsService {
         com.thong.book.entities.User user = userRepository.findByUsername(username);
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String pass = encoder.encode(user.getPassword());
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), pass, new ArrayList<>());
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), pass, user.getAuthorities());
     }
 }

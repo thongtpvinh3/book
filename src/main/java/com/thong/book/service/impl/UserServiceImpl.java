@@ -18,13 +18,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User create(User user) {
-        user.setRole(Role.EMPLOYEE);
+        user.setRole(Role.ROLE_EMPLOYEE);
         return userRepository.save(user);
     }
 
     @Override
     public User createAdmin(User user) {
-        user.setRole(Role.ADMIN);
+        user.setRole(Role.ROLE_ADMIN);
         return userRepository.save(user);
     }
 

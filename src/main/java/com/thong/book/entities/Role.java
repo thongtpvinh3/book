@@ -1,6 +1,6 @@
 package com.thong.book.entities;
 
 public enum Role {
-    EMPLOYEE,
-    ADMIN
+    ROLE_EMPLOYEE,
+    ROLE_ADMIN
 }
